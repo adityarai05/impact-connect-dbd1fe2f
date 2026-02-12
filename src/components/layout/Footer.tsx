@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className="border-t border-border bg-card">
       <div className="container py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 text-xl font-extrabold text-primary">
               <Heart className="h-6 w-6 fill-secondary text-secondary" />
               ImpactHands
@@ -29,21 +29,34 @@ const Footer = () => {
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">Quick Links</h4>
             <div className="flex flex-col gap-2">
-              {["About Us", "Opportunities", "Events", "Blog", "Donate"].map((label) => (
-                <Link key={label} to={`/${label.toLowerCase().replace(" ", "-").replace("about-us", "about")}`} className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  {label}
+              {[
+                { label: "About Us", to: "/about" },
+                { label: "Our Work", to: "/our-work" },
+                { label: "Opportunities", to: "/opportunities" },
+                { label: "Events", to: "/events" },
+                { label: "Donate", to: "/donate" },
+                { label: "Blog", to: "/blog" },
+              ].map((link) => (
+                <Link key={link.label} to={link.to} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  {link.label}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Support */}
+          {/* Get Involved */}
           <div>
-            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">Support</h4>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-foreground">Get Involved</h4>
             <div className="flex flex-col gap-2">
-              {["Contact Us", "FAQ", "Privacy Policy", "Terms of Service"].map((label) => (
-                <Link key={label} to="/contact" className="text-sm text-muted-foreground transition-colors hover:text-primary">
-                  {label}
+              {[
+                { label: "Join as Volunteer", to: "/get-involved/volunteer" },
+                { label: "Partner With Us", to: "/get-involved/partner" },
+                { label: "Careers", to: "/get-involved/careers" },
+                { label: "Internships", to: "/get-involved/internships" },
+                { label: "Contact Us", to: "/contact" },
+              ].map((link) => (
+                <Link key={link.label} to={link.to} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                  {link.label}
                 </Link>
               ))}
             </div>
