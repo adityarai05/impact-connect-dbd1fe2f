@@ -14,7 +14,90 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      opportunity_applications: {
+        Row: {
+          availability: string | null
+          created_at: string
+          email: string
+          experience: string | null
+          full_name: string
+          id: string
+          location: string | null
+          motivation: string | null
+          opportunity_title: string
+          phone: string | null
+          user_id: string
+        }
+        Insert: {
+          availability?: string | null
+          created_at?: string
+          email: string
+          experience?: string | null
+          full_name: string
+          id?: string
+          location?: string | null
+          motivation?: string | null
+          opportunity_title: string
+          phone?: string | null
+          user_id: string
+        }
+        Update: {
+          availability?: string | null
+          created_at?: string
+          email?: string
+          experience?: string | null
+          full_name?: string
+          id?: string
+          location?: string | null
+          motivation?: string | null
+          opportunity_title?: string
+          phone?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          interests: string[] | null
+          location: string | null
+          phone: string | null
+          skills: string[] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          interests?: string[] | null
+          location?: string | null
+          phone?: string | null
+          skills?: string[] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          interests?: string[] | null
+          location?: string | null
+          phone?: string | null
+          skills?: string[] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
