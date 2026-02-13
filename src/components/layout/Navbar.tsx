@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Heart, Menu, X, ChevronDown } from "lucide-react";
+import { Heart, Menu, X, ChevronDown, User, LogIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface NavItem {
   to?: string;
@@ -80,6 +81,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const location = useLocation();
+  const { user } = useAuth();
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border/50 bg-card/80 backdrop-blur-xl">
@@ -104,9 +106,15 @@ const Navbar = () => {
               </Link>
             )
           )}
-          <Button variant="hero" size="sm" className="ml-3" asChild>
-            <Link to="/get-involved/volunteer">Volunteer Now</Link>
-          </Button>
+          {user ? (
+            <Button variant="outline" size="sm" className="ml-3" asChild>
+              <Link to="/profile"><User className="mr-1 h-4 w-4" /> Profile</Link>
+            </Button>
+          ) : (
+            <Button variant="hero" size="sm" className="ml-3" asChild>
+              <Link to="/auth"><LogIn className="mr-1 h-4 w-4" /> Sign In</Link>
+            </Button>
+          )}
         </div>
 
         <button className="lg:hidden" onClick={() => setOpen(!open)}>
@@ -162,9 +170,15 @@ const Navbar = () => {
                   </Link>
                 )
               )}
-              <Button variant="hero" size="lg" className="mt-2" asChild>
-                <Link to="/get-involved/volunteer" onClick={() => setOpen(false)}>Volunteer Now</Link>
-              </Button>
+              {user ? (
+                <Button variant="outline" size="lg" className="mt-2" asChild>
+                  <Link to="/profile" onClick={() => setOpen(false)}><User className="mr-1 h-4 w-4" /> My Profile</Link>
+                </Button>
+              ) : (
+                <Button variant="hero" size="lg" className="mt-2" asChild>
+                  <Link to="/auth" onClick={() => setOpen(false)}><LogIn className="mr-1 h-4 w-4" /> Sign In</Link>
+                </Button>
+              )}
             </div>
           </motion.div>
         )}
