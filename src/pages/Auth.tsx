@@ -37,7 +37,6 @@ const Auth = () => {
     setLoading(true);
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: window.location.origin },
     });
     setLoading(false);
     if (error) {
@@ -54,7 +53,6 @@ const Auth = () => {
     setResending(true);
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: window.location.origin },
     });
     setResending(false);
     if (error) {
