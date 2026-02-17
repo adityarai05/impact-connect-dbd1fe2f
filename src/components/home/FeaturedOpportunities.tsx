@@ -1,18 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, ArrowRight } from "lucide-react";
-import foodImg from "@/assets/opportunity-food.jpg";
-import eduImg from "@/assets/opportunity-education.jpg";
-import envImg from "@/assets/opportunity-environment.jpg";
-import housingImg from "@/assets/opportunity-housing.jpg";
+import { MapPin, Clock, ArrowRight, DollarSign } from "lucide-react";
+import { allGigs } from "@/data/gigs";
 
-const opportunities = [
-  { title: "Community Food Drive", location: "Downtown Center", duration: "4 hours", cause: "Hunger Relief", image: foodImg },
-  { title: "Youth Education Program", location: "Lincoln School", duration: "3 hours/week", cause: "Education", image: eduImg },
-  { title: "Park Restoration Project", location: "Greenfield Park", duration: "Full day", cause: "Environment", image: envImg },
-  { title: "Housing Build Weekend", location: "Eastside District", duration: "2 days", cause: "Housing", image: housingImg },
-];
+const opportunities = allGigs.slice(0, 4);
 
 const FeaturedOpportunities = () => {
   return (
@@ -51,8 +43,11 @@ const FeaturedOpportunities = () => {
                   <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5" /> {opp.location}</span>
                   <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> {opp.duration}</span>
                 </div>
+                <div className="mb-3 flex items-center gap-2 text-sm font-semibold text-accent">
+                  <DollarSign className="h-4 w-4" /> Earn ₹{opp.gigEarning}
+                </div>
                 <Button variant="default" size="sm" className="w-full" asChild>
-                  <Link to="/opportunities">Apply Now</Link>
+                  <Link to={`/gigs/${opp.id}`}>View Details</Link>
                 </Button>
               </div>
             </motion.div>
