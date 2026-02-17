@@ -14,6 +14,87 @@ export type Database = {
   }
   public: {
     Tables: {
+      event_enrollments: {
+        Row: {
+          created_at: string
+          email: string
+          event_id: number
+          event_title: string
+          full_name: string
+          id: string
+          message: string | null
+          phone: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          event_id: number
+          event_title: string
+          full_name: string
+          id?: string
+          message?: string | null
+          phone?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          event_id?: number
+          event_title?: string
+          full_name?: string
+          id?: string
+          message?: string | null
+          phone?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      gig_enrollments: {
+        Row: {
+          availability: string | null
+          created_at: string
+          email: string
+          full_name: string
+          gig_id: number
+          gig_title: string
+          id: string
+          phone: string | null
+          skills: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          availability?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          gig_id: number
+          gig_title: string
+          id?: string
+          phone?: string | null
+          skills?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          availability?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          gig_id?: number
+          gig_title?: string
+          id?: string
+          phone?: string | null
+          skills?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       opportunity_applications: {
         Row: {
           availability: string | null

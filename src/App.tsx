@@ -11,6 +11,8 @@ import About from "./pages/About";
 import OurWork from "./pages/OurWork";
 import Opportunities from "./pages/Opportunities";
 import OpportunityApply from "./pages/OpportunityApply";
+import GigDetail from "./pages/GigDetail";
+import EventDetail from "./pages/EventDetail";
 import Events from "./pages/Events";
 import Donate from "./pages/Donate";
 import Blog from "./pages/Blog";
@@ -41,7 +43,9 @@ const App = () => (
                 <Route path="/our-work" element={<OurWork />} />
                 <Route path="/opportunities" element={<Opportunities />} />
                 <Route path="/opportunities/apply" element={<OpportunityApply />} />
+                <Route path="/gigs/:id" element={<GigDetail />} />
                 <Route path="/events" element={<Events />} />
+                <Route path="/events/:id" element={<EventDetail />} />
                 <Route path="/donate" element={<Donate />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/contact" element={<Contact />} />
